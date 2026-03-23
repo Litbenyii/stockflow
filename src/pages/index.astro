@@ -1,11 +1,135 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>StockFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>StockFlow</h1>
+  <p>Sistema inteligente de gestión de inventario para retail</p>
+  <span>Control total de stock en tienda y bodega</span>
+</section>
+
+<!-- PROBLEMA -->
+<section>
+  <h2>🚨 El problema</h2>
+  <p>
+    Las tiendas retail no tienen visibilidad real del inventario.
+    No saben qué hay en bodega, qué hay en tienda y los pedidos se hacen a ciegas.
+  </p>
+</section>
+
+<!-- SOLUCIÓN -->
+<section>
+  <h2>💡 La solución</h2>
+  <p>
+    StockFlow centraliza el control del inventario, automatiza registros
+    y permite tomar decisiones basadas en datos reales.
+  </p>
+</section>
+
+<!-- FUNCIONAMIENTO -->
+<section class="grid">
+  <div class="card">📦 Registro de ingreso (lotes)</div>
+  <div class="card">🛒 Ventas automáticas</div>
+  <div class="card">🏪 Stock tienda / bodega</div>
+  <div class="card">🔄 Traspasos internos</div>
+  <div class="card">🚨 Alertas de stock</div>
+  <div class="card">📊 Reportes inteligentes</div>
+</section>
+
+<!-- BENEFICIOS -->
+<section>
+  <h2>🚀 Beneficios</h2>
+  <div class="grid">
+    <div class="card">Menos errores humanos</div>
+    <div class="card">Ahorro de tiempo</div>
+    <div class="card">Mejor control interno</div>
+    <div class="card">Mejores decisiones</div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍAS -->
+<section>
+  <h2>🛠 Tecnologías</h2>
+  <p class="tech">
+    Astro · Node.js · PostgreSQL · API REST · Código de barras
+  </p>
+</section>
+
+<footer>
+  <p>Proyecto de Tesis - Ingeniería en Informática</p>
+</footer>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero span {
+  display: block;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #334155;
+}
+
+/* TECH */
+.tech {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  background: #020617;
+  padding: 20px;
+}
+</style>
+
+</body>
+</html>
