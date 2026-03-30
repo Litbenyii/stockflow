@@ -5,105 +5,161 @@
   <head>
     <meta charset="UTF-8" />
     <title>StockFlow</title>
+
     <style>
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0f172a;
+        font-family: -apple-system, sans-serif;
+        background: #020617;
         color: white;
       }
 
-      section {
-        padding: 80px 20px;
-        max-width: 1000px;
-        margin: auto;
-      }
-
-      h1, h2 {
+      /* NAVBAR */
+      nav {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(10px);
+        padding: 15px;
         text-align: center;
+        z-index: 100;
       }
 
-      .hero {
-        text-align: center;
-        padding: 120px 20px;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-      }
-
-      .btn {
-        padding: 12px 24px;
-        margin: 10px;
-        background: #22c55e;
-        color: black;
-        border-radius: 8px;
+      nav a {
+        margin: 0 15px;
+        color: white;
         text-decoration: none;
         font-weight: bold;
       }
 
+      section {
+        padding: 100px 20px;
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        padding-top: 140px;
+        background: radial-gradient(circle at top, #1e293b, #020617);
+      }
+
+      .btn {
+        padding: 14px 28px;
+        margin: 10px;
+        background: linear-gradient(135deg, #22c55e, #4ade80);
+        border-radius: 10px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* GRID */
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
       }
 
       .card {
         background: #1e293b;
-        padding: 20px;
-        border-radius: 12px;
+        padding: 25px;
+        border-radius: 15px;
+        transition: 0.3s;
+        box-shadow: 0 0 0 transparent;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(34,197,94,0.2);
+      }
+
+      .highlight {
+        color: #22c55e;
+      }
+
+      .center {
+        text-align: center;
       }
     </style>
   </head>
 
   <body>
 
+    <!-- NAVBAR -->
+    <nav>
+      <a href="#problema">Problema</a>
+      <a href="#solucion">Solución</a>
+      <a href="#funcionalidades">Funciones</a>
+      <a href="#beneficios">Beneficios</a>
+    </nav>
+
     <!-- HERO -->
     <section class="hero">
-      <h1>StockFlow</h1>
+      <h1>Stock<span class="highlight">Flow</span></h1>
       <p>Sistema inteligente de gestión de inventario en tiempo real</p>
-      <a class="btn" href="#">Ver demo</a>
-      <a class="btn" href="#">Conocer más</a>
+
+      <div>
+        <a class="btn" href="#problema">Ver problema</a>
+        <a class="btn" href="#solucion">Ver solución</a>
+      </div>
     </section>
 
     <!-- PROBLEMA -->
-    <section>
+    <section id="problema">
       <h2>El problema</h2>
       <div class="grid">
         <div class="card">❌ Diferencias en stock</div>
         <div class="card">❌ Procesos manuales</div>
-        <div class="card">❌ Falta de integración</div>
-        <div class="card">❌ Decisiones por intuición</div>
+        <div class="card">❌ Sistemas desconectados</div>
+        <div class="card">❌ Decisiones sin datos</div>
       </div>
     </section>
 
     <!-- SOLUCIÓN -->
-    <section>
+    <section id="solucion">
       <h2>La solución</h2>
-      <p style="text-align:center;">
+      <p class="center">
         Un sistema integrado que conecta bodega, ventas e inventario en tiempo real.
       </p>
     </section>
 
     <!-- FUNCIONALIDADES -->
-    <section>
+    <section id="funcionalidades">
       <h2>Funcionalidades</h2>
       <div class="grid">
-        <div class="card">📦 Control de inventario</div>
+        <div class="card">📦 Inventario en tiempo real</div>
         <div class="card">💰 Integración con ventas</div>
         <div class="card">🔄 Movimientos internos</div>
-        <div class="card">📊 Reportes automáticos</div>
+        <div class="card">📊 Reportes inteligentes</div>
       </div>
     </section>
 
     <!-- BENEFICIOS -->
-    <section>
+    <section id="beneficios">
       <h2>Beneficios</h2>
       <div class="grid">
         <div class="card">🚀 Menos pérdidas</div>
-        <div class="card">⏱ Ahorro de tiempo</div>
-        <div class="card">📊 Decisiones inteligentes</div>
-        <div class="card">🔍 Mayor control</div>
+        <div class="card">⏱ Más eficiencia</div>
+        <div class="card">📊 Mejor decisión</div>
+        <div class="card">🔍 Control total</div>
       </div>
     </section>
 
