@@ -2,134 +2,110 @@
 ---
 
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>StockFlow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>StockFlow</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+      }
 
-<body>
+      section {
+        padding: 80px 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
 
-<!-- HERO -->
-<section class="hero">
-  <h1>StockFlow</h1>
-  <p>Sistema inteligente de gestión de inventario para retail</p>
-  <span>Control total de stock en tienda y bodega</span>
-</section>
+      h1, h2 {
+        text-align: center;
+      }
 
-<!-- PROBLEMA -->
-<section>
-  <h2>🚨 El problema</h2>
-  <p>
-    Las tiendas retail no tienen visibilidad real del inventario.
-    No saben qué hay en bodega, qué hay en tienda y los pedidos se hacen a ciegas.
-  </p>
-</section>
+      .hero {
+        text-align: center;
+        padding: 120px 20px;
+      }
 
-<!-- SOLUCIÓN -->
-<section>
-  <h2>💡 La solución</h2>
-  <p>
-    StockFlow centraliza el control del inventario, automatiza registros
-    y permite tomar decisiones basadas en datos reales.
-  </p>
-</section>
+      .hero h1 {
+        font-size: 3rem;
+      }
 
-<!-- FUNCIONAMIENTO -->
-<section class="grid">
-  <div class="card">📦 Registro de ingreso (lotes)</div>
-  <div class="card">🛒 Ventas automáticas</div>
-  <div class="card">🏪 Stock tienda / bodega</div>
-  <div class="card">🔄 Traspasos internos</div>
-  <div class="card">🚨 Alertas de stock</div>
-  <div class="card">📊 Reportes inteligentes</div>
-</section>
+      .btn {
+        padding: 12px 24px;
+        margin: 10px;
+        background: #22c55e;
+        color: black;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+      }
 
-<!-- BENEFICIOS -->
-<section>
-  <h2>🚀 Beneficios</h2>
-  <div class="grid">
-    <div class="card">Menos errores humanos</div>
-    <div class="card">Ahorro de tiempo</div>
-    <div class="card">Mejor control interno</div>
-    <div class="card">Mejores decisiones</div>
-  </div>
-</section>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
 
-<!-- TECNOLOGÍAS -->
-<section>
-  <h2>🛠 Tecnologías</h2>
-  <p class="tech">
-    Astro · Node.js · PostgreSQL · API REST · Código de barras
-  </p>
-</section>
+      .card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
 
-<footer>
-  <p>Proyecto de Tesis - Ingeniería en Informática</p>
-</footer>
+  <body>
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
-  text-align: center;
-}
+    <!-- HERO -->
+    <section class="hero">
+      <h1>StockFlow</h1>
+      <p>Sistema inteligente de gestión de inventario en tiempo real</p>
+      <a class="btn" href="#">Ver demo</a>
+      <a class="btn" href="#">Conocer más</a>
+    </section>
 
-/* HERO */
-.hero {
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #6366f1, #06b6d4);
-}
+    <!-- PROBLEMA -->
+    <section>
+      <h2>El problema</h2>
+      <div class="grid">
+        <div class="card">❌ Diferencias en stock</div>
+        <div class="card">❌ Procesos manuales</div>
+        <div class="card">❌ Falta de integración</div>
+        <div class="card">❌ Decisiones por intuición</div>
+      </div>
+    </section>
 
-.hero h1 {
-  font-size: 48px;
-}
+    <!-- SOLUCIÓN -->
+    <section>
+      <h2>La solución</h2>
+      <p style="text-align:center;">
+        Un sistema integrado que conecta bodega, ventas e inventario en tiempo real.
+      </p>
+    </section>
 
-.hero span {
-  display: block;
-  margin-top: 10px;
-  opacity: 0.8;
-}
+    <!-- FUNCIONALIDADES -->
+    <section>
+      <h2>Funcionalidades</h2>
+      <div class="grid">
+        <div class="card">📦 Control de inventario</div>
+        <div class="card">💰 Integración con ventas</div>
+        <div class="card">🔄 Movimientos internos</div>
+        <div class="card">📊 Reportes automáticos</div>
+      </div>
+    </section>
 
-/* SECTIONS */
-section {
-  padding: 60px 20px;
-}
+    <!-- BENEFICIOS -->
+    <section>
+      <h2>Beneficios</h2>
+      <div class="grid">
+        <div class="card">🚀 Menos pérdidas</div>
+        <div class="card">⏱ Ahorro de tiempo</div>
+        <div class="card">📊 Decisiones inteligentes</div>
+        <div class="card">🔍 Mayor control</div>
+      </div>
+    </section>
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-/* CARDS */
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background: #334155;
-}
-
-/* TECH */
-.tech {
-  color: #38bdf8;
-  font-weight: bold;
-}
-
-/* FOOTER */
-footer {
-  background: #020617;
-  padding: 20px;
-}
-</style>
-
-</body>
+  </body>
 </html>
