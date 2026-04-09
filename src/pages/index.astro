@@ -35,25 +35,18 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </section>
 
-<section id="demo" class="fade demo-section">
-
+<section id="demo" class="demo-section">
   <h2>Así funciona StockFlow en la práctica</h2>
 
   <div class="demo-video">
-
-    <div class="video-overlay">
-      <div class="play">▶</div>
-      <span>Ver demo</span>
-    </div>
-
+    <div class="play">▶</div>
   </div>
 
   <p class="demo-text">
-    Controla todo tu negocio desde un solo panel: stock en tiempo real, ventas, alertas críticas y movimientos automatizados.
+    Visualiza en tiempo real el estado de tu inventario, movimientos y ventas.
   </p>
 
   <div class="dashboard">
-
     <div class="dashboard-header">
       <span>StockFlow Dashboard</span>
       <div class="dots">
@@ -62,7 +55,6 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <div class="dashboard-body">
-
       <div class="dashboard-card">
         <h3>Stock total</h3>
         <p class="big">1.248</p>
@@ -86,16 +78,12 @@ import Layout from "../layouts/Layout.astro";
           <li>Stock actualizado automáticamente</li>
         </ul>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <section id="problema" class="problem-hero parallax" data-speed="0.15">
   <div class="problem-overlay">
-
     <h2>El problema real del retail</h2>
 
     <p>
@@ -104,44 +92,40 @@ import Layout from "../layouts/Layout.astro";
     </p>
 
     <div class="problem-list">
-
       <div class="problem-item">
-        ❌ <strong>Diferencias de stock</strong><br>
+        ❌ <strong>Diferencias de stock</strong><br />
         Productos faltantes o duplicados al recibir mercadería.
       </div>
 
       <div class="problem-item">
-        ⚠️ <strong>Procesos manuales</strong><br>
+        ⚠️ <strong>Procesos manuales</strong><br />
         Registro por planillas o sin control por unidad.
       </div>
 
       <div class="problem-item">
-        🔗 <strong>Sistemas desconectados</strong><br>
+        🔗 <strong>Sistemas desconectados</strong><br />
         Bodega y ventas no comparten información.
       </div>
 
       <div class="problem-item">
-        📉 <strong>Falta de visibilidad</strong><br>
+        📉 <strong>Falta de visibilidad</strong><br />
         No se sabe el stock real disponible.
       </div>
 
       <div class="problem-item">
-        🧠 <strong>Decisiones sin datos</strong><br>
+        🧠 <strong>Decisiones sin datos</strong><br />
         Reposición basada en intuición.
       </div>
-
     </div>
 
     <p class="impact-text">
       💥 Todo esto genera pérdidas económicas, quiebres de stock y mala experiencia para el cliente.
     </p>
-
   </div>
 </section>
 
 <section class="fade">
   <h2>¿Por qué ocurre esto?</h2>
-
   <div class="grid">
     <div class="card">Falta de integración</div>
     <div class="card">Procesos antiguos</div>
@@ -152,7 +136,6 @@ import Layout from "../layouts/Layout.astro";
 
 <section id="solucion" class="fade">
   <h2>La solución: StockFlow</h2>
-
   <div class="grid">
     <div class="card">Inventario en tiempo real</div>
     <div class="card">Integración con ventas</div>
@@ -191,5 +174,112 @@ import Layout from "../layouts/Layout.astro";
 </section>
 
 <div class="cursor-glow"></div>
+
+<div id="debug-panel">
+  <strong>StockFlow Debug</strong>
+  <div id="debug-lines"></div>
+</div>
+
+<script is:inline>
+  (function () {
+    const linesEl = document.getElementById("debug-lines");
+
+    function addLine(text, ok = true) {
+      if (!linesEl) return;
+      const row = document.createElement("div");
+      row.style.marginTop = "4px";
+      row.style.color = ok ? "#86efac" : "#fca5a5";
+      row.textContent = (ok ? "✅ " : "❌ ") + text;
+      linesEl.appendChild(row);
+    }
+
+    function addWarn(text) {
+      if (!linesEl) return;
+      const row = document.createElement("div");
+      row.style.marginTop = "4px";
+      row.style.color = "#fcd34d";
+      row.textContent = "⚠️ " + text;
+      linesEl.appendChild(row);
+    }
+
+    window.addEventListener("error", function (e) {
+      addLine("Error global: " + (e.message || "desconocido"), false);
+    });
+
+    window.addEventListener("unhandledrejection", function (e) {
+      addLine("Promise rechazada", false);
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      addLine("HTML cargó");
+
+      const dashboard = document.querySelector(".dashboard");
+      addLine("Dashboard encontrado: " + !!dashboard, !!dashboard);
+
+      const fadeCount = document.querySelectorAll(".fade").length;
+      addLine("Secciones .fade: " + fadeCount, true);
+
+      const cards = document.querySelectorAll(".card").length;
+      addLine("Cards encontradas: " + cards, true);
+
+      const nav = document.querySelector("nav");
+      addLine("Nav encontrado: " + !!nav, !!nav);
+
+      const bodyBg = getComputedStyle(document.body).backgroundColor;
+      addLine("CSS aplicado en body: " + bodyBg, bodyBg !== "rgba(0, 0, 0, 0)");
+
+      if (dashboard) {
+        const dashboardStyles = getComputedStyle(dashboard);
+        addLine(
+          "Dashboard bg: " + dashboardStyles.backgroundColor,
+          dashboardStyles.backgroundColor !== "rgba(0, 0, 0, 0)"
+        );
+      }
+
+      setTimeout(() => {
+        if (window.__stockflowMainLoaded) {
+          addLine("main.js cargó correctamente");
+        } else {
+          addLine("main.js NO cargó", false);
+        }
+
+        if (document.documentElement.classList.contains("js")) {
+          addLine("Clase .js aplicada al <html>");
+        } else {
+          addWarn("Clase .js no aplicada");
+        }
+
+        const firstFade = document.querySelector(".fade");
+        if (firstFade) {
+          const fadeStyles = getComputedStyle(firstFade);
+          addLine(
+            "Primer .fade opacity: " + fadeStyles.opacity,
+            true
+          );
+        }
+      }, 800);
+    });
+  })();
+</script>
+
+<style is:inline>
+  #debug-panel {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 320px;
+    max-height: 60vh;
+    overflow: auto;
+    background: rgba(2, 6, 23, 0.92);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 14px;
+    z-index: 99999;
+    font: 12px/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+  }
+</style>
 
 </Layout>

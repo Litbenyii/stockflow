@@ -1,43 +1,65 @@
+window.__stockflowMainLoaded = true;
+document.documentElement.classList.add("js");
+
+window.addEventListener("error", (e) => {
+  console.error("[StockFlow main.js] Error:", e.message, e.error);
+});
+
+window.addEventListener("unhandledrejection", (e) => {
+  console.error("[StockFlow main.js] Promise rejection:", e.reason);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("[StockFlow] DOMContentLoaded desde main.js");
 
   // =========================
-  // FADE IN SCROLL
+  // FADE IN SCROLL (ROBUSTO)
   // =========================
   const elements = document.querySelectorAll(".fade");
 
-  if (elements.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+  if ("IntersectionObserver" in window && elements.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.2
+      threshold: 0.15
     });
 
-    elements.forEach(el => observer.observe(el));
+    elements.forEach((el) => observer.observe(el));
+  } else {
+    elements.forEach((el) => el.classList.add("visible"));
   }
 
+  // =========================
+  // PARALLAX
+  // =========================
+  const parallaxElements = document.querySelectorAll(".parallax");
 
-  // =========================
-  // PARALLAX OPTIMIZADO (Rendimiento fluido)
-  // =========================
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        document.querySelectorAll(".parallax").forEach(el => {
-          const speed = parseFloat(el.getAttribute("data-speed")) || 0.2;
-          el.style.transform = `translateY(${scrollY * speed}px)`;
-        });
-        ticking = false;
+  if (parallaxElements.length > 0) {
+    let ticking = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+
+      parallaxElements.forEach((el) => {
+        const speed = parseFloat(el.dataset.speed) || 0.2;
+        el.style.transform = `translateY(${scrollY * speed}px)`;
       });
-      ticking = true;
-    }
-  });
 
+      ticking = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+  }
 
   // =========================
   // CURSOR GLOW
@@ -45,26 +67,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const glow = document.querySelector(".cursor-glow");
 
   if (glow) {
+    let x = 0;
+    let y = 0;
+
     document.addEventListener("mousemove", (e) => {
-      glow.style.left = e.clientX + "px";
-      glow.style.top = e.clientY + "px";
+      x = e.clientX;
+      y = e.clientY;
     });
+
+    const animateGlow = () => {
+      glow.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(animateGlow);
+    };
+
+    animateGlow();
   }
 
-
   // =========================
-  // HOVER DINÁMICO CARDS
+  // HOVER CARDS
   // =========================
   const cards = document.querySelectorAll(".card");
 
   if (cards.length > 0) {
-    cards.forEach(card => {
+    cards.forEach((card) => {
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
-        card.style.setProperty("--x", `${e.clientX - rect.left}px`);
-        card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty("--x", `${x}px`);
+        card.style.setProperty("--y", `${y}px`);
       });
     });
   }
 
+  console.log("[StockFlow] main.js terminó correctamente");
 });
