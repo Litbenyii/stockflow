@@ -1,167 +1,195 @@
 ---
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <h1>FUNCIONA NIVEL DIOS 🔥🔥</h1>
+<Layout>
 
-    <style>
-      body {
-        margin: 0;
-        font-family: -apple-system, sans-serif;
-        background: #020617;
-        color: white;
-      }
+<nav>
+  <a href="#demo">Demo</a>
+  <a href="#problema">Problema</a>
+  <a href="#solucion">Solución</a>
+  <a href="#funcionalidades">Funciones</a>
+  <a href="#beneficios">Beneficios</a>
+</nav>
 
-      /* NAVBAR */
-      nav {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        background: rgba(0,0,0,0.6);
-        backdrop-filter: blur(10px);
-        padding: 15px;
-        text-align: center;
-        z-index: 100;
-      }
+<section class="hero">
+  <div class="hero-box">
+    <h1>Stock<span class="highlight">Flow</span></h1>
 
-      nav a {
-        margin: 0 15px;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
+    <p class="hero-big">
+      Sistema inteligente de inventario para retail moderno
+    </p>
 
-      section {
-        padding: 100px 20px;
-        max-width: 1100px;
-        margin: auto;
-      }
+    <p class="hero-small">
+      Controla, automatiza y escala tu negocio con datos en tiempo real
+    </p>
 
-      h1 {
-        font-size: 3.5rem;
-      }
+    <p class="subtitle">
+      Optimiza tu operación, elimina errores y toma decisiones con datos reales.
+    </p>
 
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 40px;
-        text-align: center;
-      }
+    <div class="buttons">
+      <a class="btn primary" href="#demo">Ver demo</a>
+      <a class="btn secondary" href="#problema">Ver problema</a>
+    </div>
+  </div>
+</section>
 
-      /* HERO */
-      .hero {
-        text-align: center;
-        padding-top: 140px;
-        background: radial-gradient(circle at top, #1e293b, #020617);
-      }
+<section id="demo" class="fade demo-section">
 
-      .btn {
-        padding: 14px 28px;
-        margin: 10px;
-        background: linear-gradient(135deg, #22c55e, #4ade80);
-        border-radius: 10px;
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        transition: 0.3s;
-      }
+  <h2>Así funciona StockFlow en la práctica</h2>
 
-      .btn:hover {
-        transform: scale(1.05);
-      }
+  <div class="demo-video">
 
-      /* GRID */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-      }
+    <div class="video-overlay">
+      <div class="play">▶</div>
+      <span>Ver demo</span>
+    </div>
 
-      .card {
-        background: #1e293b;
-        padding: 25px;
-        border-radius: 15px;
-        transition: 0.3s;
-        box-shadow: 0 0 0 transparent;
-      }
+  </div>
 
-      .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px rgba(34,197,94,0.2);
-      }
+  <p class="demo-text">
+    Controla todo tu negocio desde un solo panel: stock en tiempo real, ventas, alertas críticas y movimientos automatizados.
+  </p>
 
-      .highlight {
-        color: #22c55e;
-      }
+  <div class="dashboard">
 
-      .center {
-        text-align: center;
-      }
-    </style>
-  </head>
-
-  <body>
-
-    <!-- NAVBAR -->
-    <nav>
-      <a href="#problema">Problema</a>
-      <a href="#solucion">Solución</a>
-      <a href="#funcionalidades">Funciones</a>
-      <a href="#beneficios">Beneficios</a>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Stock<span class="highlight">Flow</span></h1>
-      <p>Sistema inteligente de gestión de inventario en tiempo real</p>
-
-      <div>
-        <a class="btn" href="#problema">Ver problema</a>
-        <a class="btn" href="#solucion">Ver solución</a>
+    <div class="dashboard-header">
+      <span>StockFlow Dashboard</span>
+      <div class="dots">
+        <div></div><div></div><div></div>
       </div>
-    </section>
+    </div>
 
-    <!-- PROBLEMA -->
-    <section id="problema">
-      <h2>El problema</h2>
-      <div class="grid">
-        <div class="card">❌ Diferencias en stock</div>
-        <div class="card">❌ Procesos manuales</div>
-        <div class="card">❌ Sistemas desconectados</div>
-        <div class="card">❌ Decisiones sin datos</div>
+    <div class="dashboard-body">
+
+      <div class="dashboard-card">
+        <h3>Stock total</h3>
+        <p class="big">1.248</p>
       </div>
-    </section>
 
-    <!-- SOLUCIÓN -->
-    <section id="solucion">
-      <h2>La solución</h2>
-      <p class="center">
-        Un sistema integrado que conecta bodega, ventas e inventario en tiempo real.
-      </p>
-    </section>
-
-    <!-- FUNCIONALIDADES -->
-    <section id="funcionalidades">
-      <h2>Funcionalidades</h2>
-      <div class="grid">
-        <div class="card">📦 Inventario en tiempo real</div>
-        <div class="card">💰 Integración con ventas</div>
-        <div class="card">🔄 Movimientos internos</div>
-        <div class="card">📊 Reportes inteligentes</div>
+      <div class="dashboard-card">
+        <h3>Ventas hoy</h3>
+        <p class="big">87</p>
       </div>
-    </section>
 
-    <!-- BENEFICIOS -->
-    <section id="beneficios">
-      <h2>Beneficios</h2>
-      <div class="grid">
-        <div class="card">🚀 Menos pérdidas</div>
-        <div class="card">⏱ Más eficiencia</div>
-        <div class="card">📊 Mejor decisión</div>
-        <div class="card">🔍 Control total</div>
+      <div class="dashboard-card">
+        <h3>Productos críticos</h3>
+        <p class="big red">12</p>
       </div>
-    </section>
 
-  </body>
-</html>
+      <div class="dashboard-card wide">
+        <h3>Actividad reciente</h3>
+        <ul>
+          <li>+12 Nike Tech ingresados</li>
+          <li>-3 Hoodies vendidos</li>
+          <li>Stock actualizado automáticamente</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="problema" class="problem-hero parallax" data-speed="0.15">
+  <div class="problem-overlay">
+
+    <h2>El problema real del retail</h2>
+
+    <p>
+      El control de inventario en retail sigue siendo uno de los mayores puntos débiles del negocio.
+      Muchas empresas operan con procesos manuales, sistemas desconectados y sin visibilidad en tiempo real.
+    </p>
+
+    <div class="problem-list">
+
+      <div class="problem-item">
+        ❌ <strong>Diferencias de stock</strong><br>
+        Productos faltantes o duplicados al recibir mercadería.
+      </div>
+
+      <div class="problem-item">
+        ⚠️ <strong>Procesos manuales</strong><br>
+        Registro por planillas o sin control por unidad.
+      </div>
+
+      <div class="problem-item">
+        🔗 <strong>Sistemas desconectados</strong><br>
+        Bodega y ventas no comparten información.
+      </div>
+
+      <div class="problem-item">
+        📉 <strong>Falta de visibilidad</strong><br>
+        No se sabe el stock real disponible.
+      </div>
+
+      <div class="problem-item">
+        🧠 <strong>Decisiones sin datos</strong><br>
+        Reposición basada en intuición.
+      </div>
+
+    </div>
+
+    <p class="impact-text">
+      💥 Todo esto genera pérdidas económicas, quiebres de stock y mala experiencia para el cliente.
+    </p>
+
+  </div>
+</section>
+
+<section class="fade">
+  <h2>¿Por qué ocurre esto?</h2>
+
+  <div class="grid">
+    <div class="card">Falta de integración</div>
+    <div class="card">Procesos antiguos</div>
+    <div class="card">Error humano</div>
+    <div class="card">Falta de tecnología</div>
+  </div>
+</section>
+
+<section id="solucion" class="fade">
+  <h2>La solución: StockFlow</h2>
+
+  <div class="grid">
+    <div class="card">Inventario en tiempo real</div>
+    <div class="card">Integración con ventas</div>
+    <div class="card">Movimientos controlados</div>
+    <div class="card">Inteligencia de datos</div>
+  </div>
+</section>
+
+<section id="funcionalidades" class="fade">
+  <h2>Funcionalidades</h2>
+  <div class="grid">
+    <div class="card">Inventario</div>
+    <div class="card">Ventas</div>
+    <div class="card">Movimientos</div>
+    <div class="card">Reportes</div>
+  </div>
+</section>
+
+<section id="beneficios" class="fade">
+  <h2>Beneficios</h2>
+  <div class="grid">
+    <div class="card">Menos pérdidas</div>
+    <div class="card">Más eficiencia</div>
+    <div class="card">Mejor decisión</div>
+    <div class="card">Control total</div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>¿Listo para dejar de perder dinero?</h2>
+
+  <div class="cta-buttons">
+    <button class="btn primary">Solicitar demo</button>
+    <button class="btn secondary">WhatsApp</button>
+  </div>
+</section>
+
+<div class="cursor-glow"></div>
+
+</Layout>
