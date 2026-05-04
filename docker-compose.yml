@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: stockflow_tarea_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: stockflow_dev
+    ports:
+      - "5434:5432"
+    volumes:
+      - stockflow_tarea_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: stockflow_tarea_backend
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/stockflow_dev
+      NODE_ENV: production
+    depends_on:
+      - postgres
+
+  frontend:
+    build: .
+    container_name: stockflow_tarea_frontend
+    restart: always
+    ports:
+      - "4321:4321"
+    environment:
+      PUBLIC_API_URL: http://backend:3001
+    depends_on:
+      - backend
+
+volumes:
+  stockflow_tarea_data:

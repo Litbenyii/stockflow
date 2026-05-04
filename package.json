@@ -2,6 +2,7 @@
   "name": "stockflow",
   "type": "module",
   "version": "0.0.1",
+  "homepage": "https://litbenyii.github.io/stockflow",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -10,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "astro": "^6.0.8"

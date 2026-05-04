@@ -1,105 +1,75 @@
-window.__stockflowMainLoaded = true;
+// activar modo JS
 document.documentElement.classList.add("js");
 
-window.addEventListener("error", (e) => {
-  console.error("[StockFlow main.js] Error:", e.message, e.error);
+/* FADE */
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+elements.forEach(el => observer.observe(el));
+
+/* CARD GLOW */
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  });
 });
 
-window.addEventListener("unhandledrejection", (e) => {
-  console.error("[StockFlow main.js] Promise rejection:", e.reason);
-});
+/* NAV SCROLL */
+const nav = document.querySelector("nav");
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("[StockFlow] DOMContentLoaded desde main.js");
-
-  // =========================
-  // FADE IN SCROLL (ROBUSTO)
-  // =========================
-  const elements = document.querySelectorAll(".fade");
-
-  if ("IntersectionObserver" in window && elements.length > 0) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
-
-    elements.forEach((el) => observer.observe(el));
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
   } else {
-    elements.forEach((el) => el.classList.add("visible"));
+    nav.classList.remove("scrolled");
   }
-
-  // =========================
-  // PARALLAX
-  // =========================
-  const parallaxElements = document.querySelectorAll(".parallax");
-
-  if (parallaxElements.length > 0) {
-    let ticking = false;
-
-    const updateParallax = () => {
-      const scrollY = window.scrollY;
-
-      parallaxElements.forEach((el) => {
-        const speed = parseFloat(el.dataset.speed) || 0.2;
-        el.style.transform = `translateY(${scrollY * speed}px)`;
-      });
-
-      ticking = false;
-    };
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    });
-  }
-
-  // =========================
-  // CURSOR GLOW
-  // =========================
-  const glow = document.querySelector(".cursor-glow");
-
-  if (glow) {
-    let x = 0;
-    let y = 0;
-
-    document.addEventListener("mousemove", (e) => {
-      x = e.clientX;
-      y = e.clientY;
-    });
-
-    const animateGlow = () => {
-      glow.style.transform = `translate(${x}px, ${y}px)`;
-      requestAnimationFrame(animateGlow);
-    };
-
-    animateGlow();
-  }
-
-  // =========================
-  // HOVER CARDS
-  // =========================
-  const cards = document.querySelectorAll(".card");
-
-  if (cards.length > 0) {
-    cards.forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty("--x", `${x}px`);
-        card.style.setProperty("--y", `${y}px`);
-      });
-    });
-  }
-
-  console.log("[StockFlow] main.js terminó correctamente");
 });
+
+/* PARALLAX SUAVE */
+const parallaxElements = document.querySelectorAll(".parallax");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  parallaxElements.forEach(el => {
+    const speed = 0.2;
+    el.style.transform = `translateY(${scrollY * speed}px)`;
+  });
+});
+
+const glow = document.querySelector('.cursor-glow');
+
+window.addEventListener('mousemove', (e) => {
+  if (!glow) return;
+
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
+});
+
+const dashboard = document.querySelector('.dashboard');
+
+if (dashboard) {
+  dashboard.addEventListener('mousemove', (e) => {
+    const rect = dashboard.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    dashboard.style.setProperty('--x', `${x}px`);
+    dashboard.style.setProperty('--y', `${y}px`);
+  });
+}
+

@@ -1,24 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import "../css/styles.css"
 ---
-
-<Layout>
 
 <nav>
   <a href="#demo">Demo</a>
   <a href="#problema">Problema</a>
-  <a href="#solucion">Solución</a>
-  <a href="#funcionalidades">Funciones</a>
+  <a href="#Funciones">Funciones</a>
+  <a href="#Solucion">Solucion</a>
   <a href="#beneficios">Beneficios</a>
 </nav>
 
-<section class="hero">
+<meta charset="UTF-8">
+
+<section class="hero parallax">
   <div class="hero-box">
     <h1>Stock<span class="highlight">Flow</span></h1>
 
     <p class="hero-big">
       Sistema inteligente de inventario para retail moderno
     </p>
+    
 
     <p class="hero-small">
       Controla, automatiza y escala tu negocio con datos en tiempo real
@@ -35,251 +36,509 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </section>
 
-<section id="demo" class="demo-section">
-  <h2>Así funciona StockFlow en la práctica</h2>
-
-  <div class="demo-video">
-    <div class="play">▶</div>
-  </div>
-
-  <p class="demo-text">
-    Visualiza en tiempo real el estado de tu inventario, movimientos y ventas.
-  </p>
+<section class="fade">
+  <h2>Visualiza tu negocio en tiempo real</h2>
 
   <div class="dashboard">
+
     <div class="dashboard-header">
-      <span>StockFlow Dashboard</span>
+      Dashboard StockFlow
       <div class="dots">
         <div></div><div></div><div></div>
       </div>
     </div>
 
     <div class="dashboard-body">
+
       <div class="dashboard-card">
         <h3>Stock total</h3>
-        <p class="big">1.248</p>
+        <p class="big">12,540</p>
       </div>
 
       <div class="dashboard-card">
         <h3>Ventas hoy</h3>
-        <p class="big">87</p>
+        <p class="big">$2.3M</p>
+        <p class="small">Actualizado en tiempo real</p>
       </div>
 
       <div class="dashboard-card">
         <h3>Productos críticos</h3>
-        <p class="big red">12</p>
+        <p class="big">18</p>
       </div>
 
       <div class="dashboard-card wide">
-        <h3>Actividad reciente</h3>
-        <ul>
-          <li>+12 Nike Tech ingresados</li>
-          <li>-3 Hoodies vendidos</li>
-          <li>Stock actualizado automáticamente</li>
-        </ul>
+        <h3>Movimientos recientes</h3>
+        <p>Entrada de productos, transferencias y ventas en tiempo real.</p>
       </div>
+
     </div>
+
   </div>
 </section>
 
-<section id="problema" class="problem-hero parallax" data-speed="0.15">
+<section id="demo" class="fade">
+  <h2>Demo del sistema</h2>
+  <p>Visualiza cómo StockFlow transforma la gestion de inventario en tiempo real.</p>
+  <div class="card">Próximamente: demo real del sistema</div>
+</section>
+
+<section id="problema" class="problem-hero">
   <div class="problem-overlay">
-    <h2>El problema real del retail</h2>
+    <div class="problem-content">
+      <h2>El problema</h2>
+      <p>
+        Las empresas retail pierden control de su inventario debido a procesos manuales,
+        sistemas desconectados y falta de visibilidad en tiempo real.
+      </p>
 
-    <p>
-      El control de inventario en retail sigue siendo uno de los mayores puntos débiles del negocio.
-      Muchas empresas operan con procesos manuales, sistemas desconectados y sin visibilidad en tiempo real.
-    </p>
+      <div class="problem-list">
+        <div class="problem-item"
+          data-video="videos/stock.mp4"
+          data-detail="Las empresas no tienen certeza real de su inventario. 
+          El sistema indica una cantidad, pero la realidad física muestra otra, generando pérdidas, quiebres de stock y desconfianza en la información.
 
-    <div class="problem-list">
-      <div class="problem-item">
-        ❌ <strong>Diferencias de stock</strong><br />
-        Productos faltantes o duplicados al recibir mercadería.
-      </div>
+          ''No puedes controlar lo que no refleja la realidad.''">
+          Diferencias de Stock
+        </div>
+        <div class="problem-item"
+          data-video="videos/stock.mp4"
+          data-detail="Gran parte de la gestión se realiza de forma manual, aumentando el riesgo de errores humanos, duplicaciones y pérdida de tiempo en tareas repetitivas que deberían estar automatizadas.
 
-      <div class="problem-item">
-        ⚠️ <strong>Procesos manuales</strong><br />
-        Registro por planillas o sin control por unidad.
-      </div>
+          ''Si dependes del esfuerzo humano para escalar, estás construyendo un límite.''">
+          Procesos Manuales
+        </div>
+        <div class="problem-item"
+          data-video="videos/stock.mp4"
+          data-detail="La información de ventas, bodega e inventario no está integrada, generando inconsistencias y falta de sincronización entre áreas clave del negocio.
 
-      <div class="problem-item">
-        🔗 <strong>Sistemas desconectados</strong><br />
-        Bodega y ventas no comparten información.
-      </div>
+          ''Un sistema dividido crea decisiones fragmentadas.''">
+          Sistemas Desconectados
+        </div>
+        <div class="problem-item"
+          data-video="videos/stock.mp4"
+          data-detail="Las decisiones se toman basadas en intuición o información incompleta, lo que impacta directamente en la rentabilidad y eficiencia operativa.
 
-      <div class="problem-item">
-        📉 <strong>Falta de visibilidad</strong><br />
-        No se sabe el stock real disponible.
-      </div>
-
-      <div class="problem-item">
-        🧠 <strong>Decisiones sin datos</strong><br />
-        Reposición basada en intuición.
+          ''Decidir sin datos es avanzar sin ver el camino.''">
+          Decisiones sin Datos
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <p class="impact-text">
-      💥 Todo esto genera pérdidas económicas, quiebres de stock y mala experiencia para el cliente.
+<section id="Funciones" class="how-it-works">
+
+  <h2>¿Como Funciona?</h2>
+
+  <div class="how-container">
+
+    <!-- IZQUIERDA -->
+    <div class="how-menu">
+
+      <div class="how-item active" data-id="recepcion">
+        Recepción
+      </div>
+
+      <div class="how-item" data-id="registro">
+        Registro
+      </div>
+
+      <div class="how-item" data-id="actualizacion">
+        Actualización
+      </div>
+
+      <div class="how-item" data-id="reportes">
+        Reportes
+      </div>
+
+    </div>
+
+    <!-- DERECHA -->
+    <div class="how-display">
+
+      <div class="how-content active" id="recepcion">
+        <video src="videos/recepcion.mp4" autoplay muted loop></video>
+        <h3>Recepción de productos</h3>
+        <p>
+          Cada producto es escaneado al llegar, validando automáticamente contra el sistema.
+        </p>
+      </div>
+
+      <div class="how-content" id="registro">
+        <img src="images/registro.png" />
+        <h3>Registro inteligente</h3>
+        <p>
+          Los productos se almacenan por unidad o caja con trazabilidad total.
+        </p>
+      </div>
+
+      <div class="how-content" id="actualizacion">
+        <img src="images/actualizacion.png" />
+        <h3>Actualización en tiempo real</h3>
+        <p>
+          Cada venta o movimiento impacta el stock inmediatamente.
+        </p>
+      </div>
+
+      <div class="how-content" id="reportes">
+        <img src="images/reportes.png" />
+        <h3>Reportes inteligentes</h3>
+        <p>
+          Datos claros para tomar decisiones sin suposiciones.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="Solucion" class="apple-slider">
+
+  <h2>Todo el control. En un solo sistema.</h2>
+
+  <div class="slider-container">
+    <p class="highlight-text">
+        "Menos errores. Más control. Mejores decisiones."
     </p>
+
+    <div class="slides">
+
+      <div class="slide active">
+        <img src="images/inventario.png" />
+        <p>Stock en tiempo real sin errores.</p>
+      </div>
+
+      <div class="slide">
+        <img src="images/ventas.png" />
+        <p>Integración automática con ventas.</p>
+      </div>
+
+      <div class="slide">
+        <img src="images/movimientos.png" />
+        <p>Control total de movimientos.</p>
+      </div>
+
+      <div class="slide">
+        <img src="images/data.png" />
+        <p>Decisiones basadas en datos reales.</p>
+      </div>
+
+    </div>
+
+    <!-- INDICADOR -->
+    <div class="slider-nav">
+      <div class="progress"></div>
+    </div>
+
+    <div class="dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
+
   </div>
+
 </section>
 
-<section class="fade">
-  <h2>¿Por qué ocurre esto?</h2>
-  <div class="grid">
-    <div class="card">Falta de integración</div>
-    <div class="card">Procesos antiguos</div>
-    <div class="card">Error humano</div>
-    <div class="card">Falta de tecnología</div>
-  </div>
-</section>
+<section id="beneficios" class="benefits-section">
 
-<section id="solucion" class="fade">
-  <h2>La solución: StockFlow</h2>
-  <div class="grid">
-    <div class="card">Inventario en tiempo real</div>
-    <div class="card">Integración con ventas</div>
-    <div class="card">Movimientos controlados</div>
-    <div class="card">Inteligencia de datos</div>
-  </div>
-</section>
+  <h2 class="benefits-title">Beneficios reales para tu negocio</h2>
 
-<section id="funcionalidades" class="fade">
-  <h2>Funcionalidades</h2>
-  <div class="grid">
-    <div class="card">Inventario</div>
-    <div class="card">Ventas</div>
-    <div class="card">Movimientos</div>
-    <div class="card">Reportes</div>
-  </div>
-</section>
+  <div class="benefits-grid">
 
-<section id="beneficios" class="fade">
-  <h2>Beneficios</h2>
-  <div class="grid">
-    <div class="card">Menos pérdidas</div>
-    <div class="card">Más eficiencia</div>
-    <div class="card">Mejor decisión</div>
-    <div class="card">Control total</div>
+    <div class="benefit-card">
+      <h3>Menos pérdidas</h3>
+      <p>
+        Reduce errores de inventario y evita pérdidas económicas por diferencias de stock.
+      </p>
+      <span>Errores humanos</span>
+    </div>
+
+    <div class="benefit-card">
+      <h3>Más eficiencia</h3>
+      <p>
+        Automatiza procesos y elimina tareas manuales innecesarias en tu operación diaria.
+      </p>
+      <span>Procesos optimizados</span>
+    </div>
+
+    <div class="benefit-card">
+      <h3>Mejor decisión</h3>
+      <p>
+        Accede a datos en tiempo real para tomar decisiones estratégicas con seguridad.
+      </p>
+      <span>Datos reales</span>
+    </div>
+
+    <div class="benefit-card">
+      <h3>Control total</h3>
+      <p>
+        Visualiza y controla todo tu inventario desde un solo sistema centralizado.
+      </p>
+      <span>Visibilidad completa</span>
+    </div>
+
   </div>
+  <p class="benefits-highlight">
+   StockFlow no solo organiza tu inventario.  
+   Transforma la forma en que gestionas tu negocio.
+  </p>
 </section>
 
 <section class="cta">
-  <h2>¿Listo para dejar de perder dinero?</h2>
-
-  <div class="cta-buttons">
-    <button class="btn primary">Solicitar demo</button>
-    <button class="btn secondary">WhatsApp</button>
-  </div>
+  <h2>Empieza hoy con StockFlow</h2>
 </section>
 
 <div class="cursor-glow"></div>
 
-<div id="debug-panel">
-  <strong>StockFlow Debug</strong>
-  <div id="debug-lines"></div>
-</div>
-
 <script is:inline>
-  (function () {
-    const linesEl = document.getElementById("debug-lines");
 
-    function addLine(text, ok = true) {
-      if (!linesEl) return;
-      const row = document.createElement("div");
-      row.style.marginTop = "4px";
-      row.style.color = ok ? "#86efac" : "#fca5a5";
-      row.textContent = (ok ? "✅ " : "❌ ") + text;
-      linesEl.appendChild(row);
+// =========================
+// FADE (lo que ya tenías)
+// =========================
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
+  });
+});
 
-    function addWarn(text) {
-      if (!linesEl) return;
-      const row = document.createElement("div");
-      row.style.marginTop = "4px";
-      row.style.color = "#fcd34d";
-      row.textContent = "⚠️ " + text;
-      linesEl.appendChild(row);
-    }
+elements.forEach(el => observer.observe(el));
 
-    window.addEventListener("error", function (e) {
-      addLine("Error global: " + (e.message || "desconocido"), false);
-    });
 
-    window.addEventListener("unhandledrejection", function (e) {
-      addLine("Promise rechazada", false);
-    });
+// =========================
+// CURSOR GLOW (base)
+// =========================
+const cursorGlow = document.querySelector('.cursor-glow');
 
-    document.addEventListener("DOMContentLoaded", function () {
-      addLine("HTML cargó");
 
-      const dashboard = document.querySelector(".dashboard");
-      addLine("Dashboard encontrado: " + !!dashboard, !!dashboard);
+// =========================
+// PUNTO 3 → MOVIMIENTO SUAVE
+// =========================
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
 
-      const fadeCount = document.querySelectorAll(".fade").length;
-      addLine("Secciones .fade: " + fadeCount, true);
+window.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
 
-      const cards = document.querySelectorAll(".card").length;
-      addLine("Cards encontradas: " + cards, true);
+function animateCursor() {
+  currentX += (mouseX - currentX) * 0.1;
+  currentY += (mouseY - currentY) * 0.1;
 
-      const nav = document.querySelector("nav");
-      addLine("Nav encontrado: " + !!nav, !!nav);
+  if (cursorGlow) {
+    cursorGlow.style.left = `${currentX}px`;
+    cursorGlow.style.top = `${currentY}px`;
+  }
 
-      const bodyBg = getComputedStyle(document.body).backgroundColor;
-      addLine("CSS aplicado en body: " + bodyBg, bodyBg !== "rgba(0, 0, 0, 0)");
+  requestAnimationFrame(animateCursor);
+}
 
-      if (dashboard) {
-        const dashboardStyles = getComputedStyle(dashboard);
-        addLine(
-          "Dashboard bg: " + dashboardStyles.backgroundColor,
-          dashboardStyles.backgroundColor !== "rgba(0, 0, 0, 0)"
-        );
-      }
+animateCursor();
 
-      setTimeout(() => {
-        if (window.__stockflowMainLoaded) {
-          addLine("main.js cargó correctamente");
-        } else {
-          addLine("main.js NO cargó", false);
-        }
 
-        if (document.documentElement.classList.contains("js")) {
-          addLine("Clase .js aplicada al <html>");
-        } else {
-          addWarn("Clase .js no aplicada");
-        }
+// =========================
+// PUNTO 2 → REACCIÓN AL HOVER
+// =========================
+const interactiveElements = document.querySelectorAll(
+  "a, button, .card, .dashboard-card"
+);
 
-        const firstFade = document.querySelector(".fade");
-        if (firstFade) {
-          const fadeStyles = getComputedStyle(firstFade);
-          addLine(
-            "Primer .fade opacity: " + fadeStyles.opacity,
-            true
-          );
-        }
-      }, 800);
-    });
-  })();
+interactiveElements.forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    if (!cursorGlow) return;
+
+    cursorGlow.style.transform = "translate(-50%, -50%) scale(1.4)";
+    cursorGlow.style.background = "radial-gradient(circle, rgba(34,197,94,0.25), transparent 60%)";
+  });
+
+  el.addEventListener("mouseleave", () => {
+    if (!cursorGlow) return;
+
+    cursorGlow.style.transform = "translate(-50%, -50%) scale(1)";
+    cursorGlow.style.background = "radial-gradient(circle, rgba(34,197,94,0.12), transparent 60%)";
+  });
+});
+
 </script>
 
-<style is:inline>
-  #debug-panel {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 320px;
-    max-height: 60vh;
-    overflow: auto;
-    background: rgba(2, 6, 23, 0.92);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 14px;
-    padding: 14px;
-    z-index: 99999;
-    font: 12px/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    backdrop-filter: blur(10px);
-  }
-</style>
+<script is:inline>
 
-</Layout>
+const items = document.querySelectorAll(".problem-item");
+
+let activeItem = null;
+let overlay = null;
+
+items.forEach(item => {
+  item.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (activeItem) return;
+
+    activeItem = item;
+
+    // Crear overlay
+    overlay = document.createElement("div");
+    overlay.className = "problem-overlay-bg";
+    document.body.appendChild(overlay);
+
+    // Expandir
+    item.classList.add("active");
+
+    // Agregar detalle
+    const videoSrc = item.dataset.video;
+
+    // VIDEO
+    const video = document.createElement("video");
+    video.src = videoSrc;
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.className = "modal-video";
+
+    // TEXTO
+    const detail = document.createElement("p");
+    detail.className = "modal-detail";
+    detail.innerText = item.dataset.detail;
+
+    // AGREGAR AL MODAL
+    item.appendChild(video);
+    item.appendChild(detail);
+
+    // Cerrar al hacer click fuera
+    overlay.addEventListener("click", closeModal);
+  });
+});
+
+// cerrar con scroll también
+window.addEventListener("scroll", () => {
+  if (activeItem) closeModal();
+});
+
+function closeModal() {
+  if (!activeItem) return;
+
+  activeItem.classList.add("closing");
+
+  setTimeout(() => {
+    activeItem.classList.remove("active", "closing");
+
+    const detail = activeItem.querySelector(".modal-detail");
+    if (detail) detail.remove();
+
+    const video = activeItem.querySelector(".modal-video");
+    if (video) video.remove();
+    
+    if (overlay) overlay.remove();
+
+    activeItem = null;
+  }, 300);
+}
+
+const howItems = document.querySelectorAll(".how-item");
+const howContents = document.querySelectorAll(".how-content");
+
+howItems.forEach(item => {
+  item.addEventListener("click", () => {
+
+    const id = item.dataset.id;
+
+    // reset
+    howItems.forEach(i => i.classList.remove("active"));
+    howContents.forEach(c => c.classList.remove("active"));
+
+    // activar
+    item.classList.add("active");
+    document.getElementById(id).classList.add("active");
+
+  });
+});
+
+const slides = document.querySelector(".slides");
+const slideItems = document.querySelectorAll(".slide");
+const progress = document.querySelector(".progress");
+
+let index = 0;
+
+function updateSlider() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  const percent = ((index + 1) / slideItems.length) * 100;
+  progress.style.width = percent + "%";
+
+  updateDots(); // 👈 AGREGA ESTA LINEA
+}
+
+// AUTO SLIDE
+setInterval(() => {
+  index++;
+
+  if (index >= slideItems.length) {
+    index = 0;
+  }
+
+  updateSlider();
+}, 6000);
+
+  let startX = 0;
+
+  slides.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
+  });
+
+  slides.addEventListener("mouseup", (e) => {
+    let diff = e.clientX - startX;
+
+    if (diff > 50) index--;     // swipe derecha
+    if (diff < -50) index++;    // swipe izquierda
+
+    if (index < 0) index = 0;
+    if (index >= slideItems.length) index = slideItems.length - 1;
+
+    updateSlider();
+  });
+
+  let touchStart = 0;
+
+slides.addEventListener("touchstart", (e) => {
+  touchStart = e.touches[0].clientX;
+});
+
+slides.addEventListener("touchend", (e) => {
+  let diff = e.changedTouches[0].clientX - touchStart;
+
+  if (diff > 50) index--;
+  if (diff < -50) index++;
+
+  if (index < 0) index = 0;
+  if (index >= slideItems.length) index = slideItems.length - 1;
+
+  updateSlider();
+});
+
+const dots = document.querySelectorAll(".dot");
+
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+// CLICK EN DOTS
+dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    index = parseInt(dot.dataset.index);
+    updateSlider();
+    updateDots();
+  });
+});
+
+</script>
