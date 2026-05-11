@@ -1,46 +1,54 @@
-# Astro Starter Kit: Basics
+# StockFlow
 
-```sh
-npm create astro@latest -- --template basics
+Sistema inteligente de gestión de inventario en tiempo real para empresas retail.
+
+## Requisitos
+
+- Docker Desktop instalado y corriendo
+- Git
+
+## Despliegue
+
+```bash
+git clone https://github.com/Litbenyii/stockflow.git
+cd stockflow
+docker compose up
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Acceso
 
-## 🚀 Project Structure
+Una vez levantado el proyecto:
 
-Inside of your Astro project, you'll see the following folders and files:
+| Servicio | URL |
+|---|---|
+| Frontend | http://localhost:4321/stockflow/ |
+| Backend API | http://localhost:3001/ping |
+| Base de datos | localhost:5434 |
 
-```text
-/
+## Servicios
+
+- **Frontend** — Web de StockFlow construida con Astro (Node 22)
+- **Backend** — API REST con Node.js + Express (Node 20)
+- **Base de datos** — PostgreSQL 15
+
+## Variables de entorno
+
+Copiar el archivo de ejemplo:
+
+```bash
+cp .env.example .env
+```
+
+Las variables disponibles están en `.env.example`. El proyecto funciona con los valores por defecto sin necesidad de modificar nada.
+
+## Estructura del proyecto
+
+stockflow/
+├── docker-compose.yml
+├── .env.example
+├── README.md
+├── Dockerfile
+├── src/
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+└── backend/
+└── Dockerfile

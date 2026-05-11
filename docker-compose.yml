@@ -4,13 +4,20 @@ services:
     container_name: stockflow_tarea_db
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres123
-      POSTGRES_DB: stockflow_dev
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres123}
+      POSTGRES_DB: ${POSTGRES_DB:-stockflow_dev}
     ports:
       - "5434:5432"
     volumes:
       - stockflow_tarea_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-stockflow_dev}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - stockflow_net
 
   backend:
     build: ./backend
@@ -19,10 +26,13 @@ services:
     ports:
       - "3001:3001"
     environment:
-      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/stockflow_dev
-      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres123@postgres:5432/stockflow_dev}
+      NODE_ENV: ${NODE_ENV:-production}
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+    networks:
+      - stockflow_net
 
   frontend:
     build: .
@@ -31,9 +41,15 @@ services:
     ports:
       - "4321:4321"
     environment:
-      PUBLIC_API_URL: http://backend:3001
+      PUBLIC_API_URL: ${PUBLIC_API_URL:-http://backend:3001}
     depends_on:
       - backend
+    networks:
+      - stockflow_net
 
 volumes:
   stockflow_tarea_data:
+
+networks:
+  stockflow_net:
+    driver: bridge
